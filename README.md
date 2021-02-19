@@ -1,3 +1,5 @@
+
+
 # Anotações:
 
 ## Comandos no terminal:
@@ -11,4 +13,4 @@
     * node [caminho até o arquivo] = executar um arquivo
 
 ## Node:
-    * callback = um função que recebe como argumento outra função e não é executado no      momento da chamado da função
+    * callback = um função que recebe como argumento outra função e não é executado no momento da chamado da função
