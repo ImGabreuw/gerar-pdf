@@ -23,7 +23,7 @@ Pré-requisitos: git / npm / node
 
 ```bash
 # Clone este repositório
-$ git clone https://github.com/gustavoabell/dsdelivery-sds2
+$ git clone https://github.com/ImGabreuw/gerar-pdf
 
 # Acesse a pasta do projeto no terminal
 $ cd gerar-pdf
