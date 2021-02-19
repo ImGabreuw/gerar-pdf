@@ -1,7 +1,7 @@
 const express = require('express')
 const ejs = require('ejs')
 const path = require('path')
-const pdf = require('html-pdf')
+const puppeteer = require('puppeteer')
 const app = express()
 
 const passengers = [
@@ -22,6 +22,39 @@ const passengers = [
     },
 ]
 
+// await = apenas para funções assíncronas (async)
+app.get(
+    '/pdf',
+    async(request, response) => {
+        const browser = await puppeteer.launch()
+        const page = await browser.newPage()
+
+        await page.goto(
+            'http://localhost:3000/',
+            {
+                waitUntil: 'networkidle0'
+            } // Esperar a página carregar
+        )
+
+        const pdf = await page.pdf({
+            printBackground: true,
+            format: 'Letter',
+            margin: {
+                top: "20px",
+                bottom: "20px",
+                left: "20px",
+                right: "20px"
+            }
+        })
+
+        await browser.close()
+
+        response.contentType("application/pdf")
+
+        return response.send(pdf)
+    }
+)
+
 // endpoint
 app.get(
     '/', // Rota
@@ -35,30 +68,8 @@ app.get(
                 if (error) {
                     return response.send("Erro na leitura do arquivo")
                 }
-
-                // Formato do PDF
-                const options = {
-                    height: "11.21in",
-                    width: "8.5in",
-                    header: {
-                        height: "20mm"
-                    },
-                    footer: {
-                        height: "20mm"
-                    }
-                }
-                // Criar PDF
-                pdf.create(html, options).toFile(
-                    "report.pdf",
-                    (error, data) => { // callback 2
-                        if (error) {
-                            return response.send("Erro ao gerar o PDF")
-                        }
-
-                        // Enviar para o navegador
-                        return response.send(html)  
-                    }
-                )
+                
+                return response.send(html)
             }
         )
     } // Função
