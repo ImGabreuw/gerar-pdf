@@ -15,7 +15,7 @@ A aplicação consiste em gerar um pdf, com algums dados *hard coded*, e mostrá
 - [EJS](https://ejs.co/)
 - [NodeJS](https://nodejs.org/en/docs/)
 - [Puppeteer](https://pptr.dev/)
-- [Tailwind CSS](https://tailwindcss.com/docs
+- [Tailwind CSS](https://tailwindcss.com/docs)
 
 # Como executar o projeto
 ## Front-end web
