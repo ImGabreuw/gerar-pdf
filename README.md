@@ -1,4 +1,4 @@
-# Maratona Discover
+# Gerar PDF
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/ImGabreuw/gerar-pdf/blob/master/LICENSE) 
 
 # Sobre o projeto
